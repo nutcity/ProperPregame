@@ -15,9 +15,9 @@ public Plugin:myinfo = {
 	url = "https://github.com/AJagger/ProperPregame"
 }
 
-new bool:disableStickies = true;
+new bool:disableStickies = false;
 new bool:disableSentries = true;
-new bool:disableAfterburn = false;
+new bool:disableAfterburn = true;
 new bool:disableClassLimits = true;
 new bool:editMode = false;
 
@@ -39,9 +39,9 @@ new Handle:disableClassLimitsHandle = INVALID_HANDLE;
 public OnPluginStart()
 {
 	CreateConVar("pp", PLUGIN_VERSION, PLUGIN_NAME, FCVAR_REPLICATED);
-	disableStickiesHandle = CreateConVar("pp_disableStickies", "1", "Disable sticky damage", FCVAR_NOTIFY);
+	disableStickiesHandle = CreateConVar("pp_disableStickies", "0", "Disable sticky damage", FCVAR_NOTIFY);
 	disableSentriesHandle = CreateConVar("pp_disableSentries", "1", "Disable sentry damage", FCVAR_NOTIFY);
-	disableAfterburnHandle = CreateConVar("pp_disableAfterburn", "0", "Disable afterburn damage", FCVAR_NOTIFY);
+	disableAfterburnHandle = CreateConVar("pp_disableAfterburn", "1", "Disable afterburn damage", FCVAR_NOTIFY);
 	disableClassLimitsHandle = CreateConVar("pp_disableClassLimits", "1", "Disable config-enforced class limits in pregame", FCVAR_NOTIFY);
 	
 	HookConVarChange(disableStickiesHandle, ConVarChangeHandler);
